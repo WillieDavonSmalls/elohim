@@ -56,36 +56,96 @@ export default class Home extends Component {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>B</td>
+                                    <td>BOUND</td>
                                     <td>John Thomas, LLC.</td>
                                     <td>July 8, 2018</td>
                                 </tr>
                                 <tr>
-                                    <td>B</td>
+                                    <td>BOUND</td>
                                     <td>Carol Danvers</td>
                                     <td>July 8, 2018</td>
                                 </tr>
                                 <tr>
-                                    <td>C</td>
+                                    <td>QUOTE</td>
                                     <td>Scott Summers, Trust</td>
                                     <td>July 8, 2018</td>
                                 </tr>
                             </tbody>
                         </Table>
-
                     </Col>
+
                     <Col xs={12} md={9}>
-                        <Nav bsStyle="tabs" activeKey="1" onSelect={k => this.handleSelect(k)}>
-                            <NavItem eventKey="1" componentClass={Link} href="/" to="/">
-                                Account Details
-                            </NavItem>
-                            <NavItem eventKey="2" componentClass={Link} href="/" to="/">
-                                Advanced Search
-                            </NavItem>
-                            <NavItem eventKey="3" componentClass={Link} href="/" to="/">
-                                Reports
-                            </NavItem>
-                        </Nav>
+                        {/* Heading */}
+                        <Row>
+                            <Col xs={12} md={12}>
+                                <h2>Test Locations</h2>
+                                <p>123 Hello Street</p>
+                                <p>Nantucket MA 02554</p>
+                            </Col>
+                        </Row>
+
+                        {/* Risk Information */}
+                        <Row>
+                            <Col xs={12} md={12}>
+                                <h5>BOUND RISK:</h5>
+                                <p><strong>Policy Number: </strong>TEST12312321</p>
+                                <p><strong>Transaction: </strong>Renewal</p>
+                                <p><strong>Policy Effective Date: </strong>March 12, 2018</p>
+                                <p><strong>Transaction Effective Date: </strong>March 12, 2019</p>
+                                <p><strong>Occupied By: </strong>Owner</p>
+                            </Col>
+                        </Row>
+
+                        {/* Financial Information */}
+                        <Row>
+                            <Col xs={12} md={12}>
+                                <h5>FINANCIAL INFORMATION:</h5>
+                                    <Col xs={12} md={6}>
+                                        <p><i><strong>Coverage Values:</strong></i></p>
+                                        <p>Coverage A: 1,000,000</p>
+                                        <p>Coverage B: 1,000,000</p>
+                                        <p>Coverage C: 1,000,000</p>
+                                        <p>Coverage D: 1,000,000</p>
+                                        <p>Coverage E: 1,000,000</p>
+                                        <p>Coverage F: 1,000,000</p>
+                                        <p>Total Insured Value (TIV): 1,000,000</p>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <p><i><strong>Deductible and Flood Policy Information:</strong></i></p>
+                                        <p>Wind: 2%</p>
+                                        <p>Earthquake: 0%</p>
+                                        <p>WS Site Ded as % of A: 2.63%</p>
+                                        <p>AOP Deductible: 10,000</p>
+                                        <p>Primary Flood Insurance Policy: Unknown</p>
+                                    </Col>
+                            </Col>
+                        </Row>
+
+                        {/* Financial Information */}
+                            <Col xs={12} md={12}>
+                                <Row>
+                                <h5>EXPOSURE INFORMATION:</h5>
+                                    <Col xs={12} md={6}>
+                                        <p><i><strong>Primary Characteristics:</strong></i></p>
+                                        <p>Construction: Frame</p>
+                                        <p>Number of Stories: 2</p>
+                                        <p>Year Built: 1900</p>
+                                        <p>Floor Area: 6,000</p>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <p><i><strong>Secondary Characteristics:</strong></i></p>
+                                        <p>Open Protection: Other/Unknown</p>
+                                        <p>Roof Anchor: Other/Unknown</p>
+                                        <p>Roof Geometry: Unknown</p>
+                                        <p>Roof Sheathing: Other/Unknown</p>
+                                        <p>Roof Age: 11 years or more</p>
+                                        <p>Year Upgrade: Unknown</p>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        <Row> 
+                            
+                        </Row>
                     </Col>
                 </Row>
             </Grid>
