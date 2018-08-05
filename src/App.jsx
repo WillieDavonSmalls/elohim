@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'react-bootstrap';
 import Navbar from './views/home/home_navbar'
-
+import home from './views/home/home';
+import './App.css';
 
 
 class App extends Component {
@@ -14,6 +11,7 @@ class App extends Component {
       <Router>
         <div> 
           <Navbar/>
+          <Route exact path="/" component ={home} />
         </div>
       </Router>
     );
