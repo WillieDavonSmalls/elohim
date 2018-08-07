@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Button, Tabs, Tab } from 'react-bootstrap';
 
 import './home.css'
+import Hello from './advancedsearch';
+import AccountDisplay from './accountdisplay';
 
 
 export default class Home extends Component {
@@ -96,110 +98,25 @@ export default class Home extends Component {
                     </Col>
 
                     <Col xs={12} md={9}>
-                        {/* Heading */}
-                        <Row>
-                            <Col xs={12} md={12}>
-                                <h2>Test Locations</h2>
-                                <p>123 Hello Street</p>
-                                <p>Nantucket MA 02554</p>
-                            </Col>
-                        </Row>
-
-                        {/* Risk Information */}
-                        <Row>
-                            <Col xs={12} md={12}>
-                                <h5>BOUND RISK:</h5>
-                                <p><strong>Policy Number: </strong>TEST12312321</p>
-                                <p><strong>Transaction: </strong>Renewal</p>
-                                <p><strong>Policy Effective Date: </strong>March 12, 2018</p>
-                                <p><strong>Transaction Effective Date: </strong>March 12, 2019</p>
-                                <p><strong>Occupied By: </strong>Owner</p>
-                            </Col>
-                        </Row>
-
-                        {/* Financial Information */}
-                        <Row>
-                            <Col xs={12} md={12}>
-                                <h5>FINANCIAL INFORMATION:</h5>
-                                <Col xs={12} md={6}>
-                                    <p><i><strong>Coverage Values:</strong></i></p>
-                                    <p>Coverage A: 1,000,000</p>
-                                    <p>Coverage B: 1,000,000</p>
-                                    <p>Coverage C: 1,000,000</p>
-                                    <p>Coverage D: 1,000,000</p>
-                                    <p>Coverage E: 1,000,000</p>
-                                    <p>Coverage F: 1,000,000</p>
-                                    <p>Total Insured Value (TIV): 1,000,000</p>
-                                </Col>
-                                <Col xs={12} md={6}>
-                                    <p><i><strong>Deductible and Flood Policy Information:</strong></i></p>
-                                    <p>Wind: 2%</p>
-                                    <p>Earthquake: 0%</p>
-                                    <p>WS Site Ded as % of A: 2.63%</p>
-                                    <p>AOP Deductible: 10,000</p>
-                                    <p>Primary Flood Insurance Policy: Unknown</p>
-                                </Col>
-                            </Col>
-                        </Row>
-
-                        {/* Exposure Information */}
-                        <Col xs={12} md={12}>
-                            <Row>
-                                <h5>EXPOSURE INFORMATION:</h5>
-                                <Col xs={12} md={6}>
-                                    <p><i><strong>Primary Characteristics:</strong></i></p>
-                                    <p>Construction: Frame</p>
-                                    <p>Number of Stories: 2</p>
-                                    <p>Year Built: 1900</p>
-                                    <p>Floor Area: 6,000</p>
-                                </Col>
-                                <Col xs={12} md={6}>
-                                    <p><i><strong>Secondary Characteristics:</strong></i></p>
-                                    <p>Open Protection: Other/Unknown</p>
-                                    <p>Roof Anchor: Other/Unknown</p>
-                                    <p>Roof Geometry: Unknown</p>
-                                    <p>Roof Sheathing: Other/Unknown</p>
-                                    <p>Roof Age: 11 years or more</p>
-                                    <p>Year Upgrade: Unknown</p>
-                                </Col>
-                            </Row>
-                        </Col>
-
-                        {/* comment section */}
-                        {/* Exposure Information */}
-                        <Col xs={12} md={12}>
-                            <Row>
-                                <h5>COMMENTS SECTION:</h5>
-                                {/* current comments */}
-                                <Col xs={12} md={6}>
-
-                                </Col>
-                                {/* New comments */}
-                                <Col xs={12} md={6}>
-                                    <Form>
-                                        <FormGroup controlId="formCommentsText">
-                                            <ControlLabel>New Comments:</ControlLabel>
-                                            <FormControl
-                                                style={{ height: '100px' }}
-                                                type="text"
-                                                value={this.state.value}
-                                                placeholder="Enter text"
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControl.Feedback />
-                                        </FormGroup>
-                                    </Form>
-                                    <Button bsStyle="primary"> Submit
-                                        {/* bsStyle="primary"
-                                        disabled={isLoading}
-                                        onClick={!isLoading ? this.handleClick : null}>
-                                        {isLoading ? 'Submitting...' : 'Submit'} */}
-                                    </Button>
+                        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+                            <Tab eventKey={1} title="Account Information">
+                            <AccountDisplay />
+                            </Tab>
+                            <Tab eventKey={2} title="Advanced Search">
+                                Tab 2 content
+                                <Hello />
 
 
-                                </Col>
-                            </Row>
-                        </Col>
+
+
+
+
+                            </Tab>
+                            <Tab eventKey={3} title="Reports">
+                                Tab 3 content
+                            </Tab>
+                        </Tabs>
+
                     </Col>
                 </Row>
             </Grid>

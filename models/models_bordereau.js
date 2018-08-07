@@ -36,6 +36,9 @@ var models = {
   }
 }
 
+
+
+//missing aggregation query and search
 // models.allAccounts();
 // models.selectAccount(bordereauid); 
 
