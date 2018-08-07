@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import AdvancedSearchForm from './advancedsearchmultInput';
+import { Row,  Col } from 'react-bootstrap';
 
-export default class Hello extends Component {
+
+
+
+export default class AdvancedSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,9 +15,12 @@ export default class Hello extends Component {
 
     render() {
         return (
-            <div className="container">
-                Hello Jokers
-            </div>
+            <Row>
+                <Col xs={12} md={12}>
+                <AdvancedSearchForm />
+                </Col>
+            </Row>
+                
         );
     }
 }

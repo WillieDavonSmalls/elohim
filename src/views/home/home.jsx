@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Button, Tabs, Tab } from 'react-bootstrap';
 
 import './home.css'
-import Hello from './advancedsearch';
+import AdvancedSearch from './advancedsearch';
 import AccountDisplay from './accountdisplay';
 
 
@@ -103,8 +103,7 @@ export default class Home extends Component {
                             <AccountDisplay />
                             </Tab>
                             <Tab eventKey={2} title="Advanced Search">
-                                Tab 2 content
-                                <Hello />
+                                <AdvancedSearch />
 
 
 
@@ -113,7 +112,7 @@ export default class Home extends Component {
 
                             </Tab>
                             <Tab eventKey={3} title="Reports">
-                                Tab 3 content
+                                Reports Aggregation 
                             </Tab>
                         </Tabs>
 

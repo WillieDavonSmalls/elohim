@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Button, Tabs, Tab } from 'react-bootstrap';
+import {  Row, Col } from 'react-bootstrap';
 
 import './accountdisplay.css';
 import './btnsubmitcomment';
+import CommentsForm from './commentsform';
 
 export default class AccountDisplay extends Component {
 
@@ -103,20 +104,7 @@ export default class AccountDisplay extends Component {
                         </Col>
                         {/* New comments */}
                         <Col xs={12} md={6}>
-                            <Form>
-                                <FormGroup controlId="formCommentsText">
-                                    <ControlLabel>New Comments:</ControlLabel>
-                                    <FormControl
-                                        style={{ height: '50px' }}
-                                        type="text"
-                                        value={this.state.value}
-                                        placeholder="Enter account comments here..."
-                                        onChange={this.handleChange}
-                                    />
-                                    <FormControl.Feedback />
-                                </FormGroup>
-                            </Form>
-                            <Button bsStyle="primary"> Submit</Button>
+                            <CommentsForm />
                         </Col>
                     </Row>
                 </Col>
