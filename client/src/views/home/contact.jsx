@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Row, Grid, Col} from 'react-bootstrap';
 // import AccountList from './accounttbl';
 
 
-export default class About extends Component {
+export default class Contact extends Component {
 
     //For Form
     constructor(props, context) {

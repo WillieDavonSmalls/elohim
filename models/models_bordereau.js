@@ -24,7 +24,25 @@ var models = {
     SqFootage, PrimaryFloodCoveredFlag, WSDedPerc, AOPDed, EQDedPerc, HOCovLim_A, HOCovLim_B, HOCovLim_C, HOCovLim_D, HOCovLim_E, HOCovLim_F,
     RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing, COMMENTS
     FROM tblbordereau left join tblcomments on tblbordereau.BORDEREAUID = tblcomments.BORDEREAUID
-    where tblbordereau.BORDEREAUID = ${bordereauid}`
+    where tblbordereau.BORDEREAUID = ${bordereauid}`;
+    connection.query(queryString, function(error, result) {
+      // connection.end();
+        if (error) return callback(error);
+
+        // console.log(result);
+        callback(result);
+    });
+  
+  },
+
+  All: function(callback) {
+    var queryString =  
+    `SELECT tblbordereau.BORDEREAUID, STATUS, SubmitDate, InsuredName, ProgramAdministrator, PolicyNumber, EffectiveDate, ExpirationDate,
+    StatusCode, TransactionDate, StreetAddress, City, County, State, Zip, OccupiedBy, ConstructionType, YearBuilt, NumStories,YearRefurbished, 
+    SqFootage, PrimaryFloodCoveredFlag, WSDedPerc, AOPDed, EQDedPerc, HOCovLim_A, HOCovLim_B, HOCovLim_C, HOCovLim_D, HOCovLim_E, HOCovLim_F,
+    RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing, COMMENTS
+    FROM tblbordereau left join tblcomments on tblbordereau.BORDEREAUID = tblcomments.BORDEREAUID
+    order by SUBMITDATE desc`;
     connection.query(queryString, function(error, result) {
       // connection.end();
         if (error) return callback(error);
@@ -35,7 +53,6 @@ var models = {
   
   }
 }
-
 
 
 //missing aggregation query and search

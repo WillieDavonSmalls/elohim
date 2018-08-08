@@ -18,8 +18,22 @@ router.get("/api/allaccounts", function(request, result) {
     models.allAccounts(function(data) {
     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
     result.send(data);
+    console.log(data);
   });
 });
 
+router.get("/api/all", function(request, result) {
+
+  models.All(function(data) {
+  // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
+  result.send(data);
+  console.log(data);
+});
+});
+
+
 // Export routes for server.js to use.
 module.exports = router;
+
+
+

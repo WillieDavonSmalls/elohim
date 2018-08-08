@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Button, Tabs, Tab } from 'react-bootstrap';
+import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Tabs, Tab } from 'react-bootstrap';
 
 import './home.css'
 import AdvancedSearch from './advancedsearch';
@@ -104,12 +104,6 @@ export default class Home extends Component {
                             </Tab>
                             <Tab eventKey={2} title="Advanced Search">
                                 <AdvancedSearch />
-
-
-
-
-
-
                             </Tab>
                             <Tab eventKey={3} title="Reports">
                                 Reports Aggregation 

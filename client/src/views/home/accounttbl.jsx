@@ -18,6 +18,7 @@ export default class AccountList extends Component {
                 throw new Error("Bad response from server");
             }
             return response.json();
+            console.log(response);
         }).then(function (data) {
             self.setState({ accounts: data });
         }).catch(err => {
