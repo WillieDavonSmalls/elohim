@@ -5,28 +5,27 @@ export default class AccountList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            accounts: []
+            accounts: [],
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        console.log('Current State is: ' + JSON.stringify(this.state));
+        alert("current state is: " + JSON.stringify(this.state));
+        event.preventDefault();
     }
 
     componentDidMount() {
-        let self = this;
-        fetch('/api/allaccounts', {
-            method: 'GET'
-        }).then(function (response) {
-            if (response.status >= 400) {
-                throw new Error("Bad response from server");
-            }
-            return response.json();
-            console.log(response);
-        }).then(function (data) {
-            self.setState({ accounts: data });
-        }).catch(err => {
-            console.log('Error: ', error);
-        })
+        fetch('/api/allaccounts')
+        .then(response => response.json())
+        .then(data => this.setState({ accounts: data }));
     }
 
+
+    
     render() {
+
         return (
             <div className="container">
                 <div className="panel panel-default p50 uth-panel">
@@ -40,7 +39,7 @@ export default class AccountList extends Component {
                         </thead>
                         <tbody>
                             {this.state.accounts.map(account =>
-                                <tr key={account.BORDEREAUID}>
+                                <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID}>
                                     <td>{account.STATUS} </td>
                                     <td>{account.INSUREDNAME}</td>
                                     <td>{account.SUBMITDATE}</td>

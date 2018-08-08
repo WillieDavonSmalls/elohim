@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Grid, Col} from 'react-bootstrap';
-// import AccountList from './accounttbl';
+import AccountList from './accounttbl';
 
 
 export default class About extends Component {
@@ -20,9 +20,9 @@ export default class About extends Component {
         return (
             <Grid>
                 <Row className="main-row">
-                    <Col xs={12} md={12}>
+                    <Col xs={12} md={3}>
                     Hello
-                    {/* <AccountList /> */}
+                    <AccountList />
                     </Col>
                 </Row>
             </Grid>

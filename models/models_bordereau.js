@@ -5,7 +5,9 @@ var bordereauid = '870';
 var models = {
 
   allAccounts: function(callback) {
-    var queryString = `select BORDEREAUID, STATUS, SUBMITDATE, INSUREDNAME from tblbordereau order by SUBMITDATE desc`; 
+    var queryString = 
+    `select BORDEREAUID, STATUS, DATE_FORMAT(SUBMITDATE, "%W %M %e %Y") as SUBMITDATE,  INSUREDNAME 
+    from tblbordereau order by SUBMITDATE desc;`; 
     
     connection.query(queryString, function(error, result) {
       // connection.end();
