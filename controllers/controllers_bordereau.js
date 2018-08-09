@@ -32,6 +32,17 @@ router.get("/api/all", function(request, result) {
 });
 
 
+router.post("/api/searchaccount", function(request, result) {
+
+  models.searchAccounts(request.body.account,function(data) {
+  // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
+  console.log('hello', request.body.account);
+  result.send(data);
+  console.log(data);
+});
+});
+
+
 // Export routes for server.js to use.
 module.exports = router;
 

@@ -1,45 +1,31 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
+import './accounttbl.css'
 
 export default class AccountList extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            accounts: [],
-        }
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    handleClick(event) {        
+        const target = event.target;
+        const value = target.key; 
 
-    handleSubmit(event) {
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert("current state is: " + JSON.stringify(this.state));
-        event.preventDefault();
+        alert('The link was clicked. hello', value);
     }
-
-    componentDidMount() {
-        fetch('/api/allaccounts')
-        .then(response => response.json())
-        .then(data => this.setState({ accounts: data }));
-    }
-
 
     
     render() {
 
         return (
-            <div className="container">
-                <div className="panel panel-default p50 uth-panel">
-                    <Table className="table table-hover">
+                <div className="">
+                    <Table className="">
                         <thead>
                             <tr>
-                                <th>Status</th>
-                                <th>Account Name</th>
-                                <th>Date</th>
+                                <th align="center">Status</th>
+                                <th align="center">Account Name</th>
+                                <th align="center">Date</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {this.state.accounts.map(account =>
-                                <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID}>
+                        <tbody className="accountTable">
+                            {this.props.accounts.map(account =>
+                                <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID} onClick={this.handleClick}>
                                     <td>{account.STATUS} </td>
                                     <td>{account.INSUREDNAME}</td>
                                     <td>{account.SUBMITDATE}</td>
@@ -48,7 +34,6 @@ export default class AccountList extends Component {
                         </tbody>
                     </Table>
                 </div>
-            </div>
         );
     }
 }

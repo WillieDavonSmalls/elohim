@@ -1,0 +1,10 @@
+.accountTable {
+    height: 500px;
+    overflow-y: scroll;
+  }
+  
+
+td{
+    align-content: center;
+}
+tr:nth-child(even) {background-color: #cdcdcd;}

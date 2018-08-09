@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Table, Tabs, Tab } from 'react-bootstrap';
+import { Grid, Row, Col, Form, FormGroup, ControlLabel, FormControl, Button, Tabs, Tab } from 'react-bootstrap';
 
 import './home.css'
 import AdvancedSearch from './advancedsearch';
 import AccountDisplay from './accountdisplay';
+import AccountList from './accounttbl';
 
 
 export default class Home extends Component {
@@ -14,10 +15,27 @@ export default class Home extends Component {
         super(props, context);
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleSearchClick = this.handleSearchClick.bind(this);
+        
 
         this.state = {
-            value: ''
+            value: '',
+            accounts: []
         };
+    }
+
+    componentDidMount() {
+        const options = {
+            method: 'GET',
+            headers:{
+                "content-type":"applicaiton/json"
+            }
+        }
+
+        fetch('/api/allaccounts', options)
+        .then(response => response.json())
+        .then(data => this.setState({ accounts: data }))
+        .catch(err => console.error(`Something went wrong ${err}`));
     }
 
     //for Form 
@@ -36,6 +54,21 @@ export default class Home extends Component {
     //   };
     // }
 
+    handleSearchClick() {
+        alert(this.state.value)
+        const options = {
+            method: "post",
+            body: JSON.stringify({account : this.state.value}),
+            headers:{
+                "content-type":"application/json"
+            }
+            
+        }
+        fetch("/api/searchaccount", options)
+        .then(results => results.json())
+        .then(data => this.setState({ accounts: data }))
+    }
+
     handleClick() {
         this.setState({ isLoading: true });
 
@@ -52,7 +85,7 @@ export default class Home extends Component {
         return (
             <Grid>
                 <Row className="main-row">
-                    <Col xs={12} md={3}>
+                    <Col xs={12} md={4}>
 
                         {/* Search Bar and Form  */}
                         <Form>
@@ -68,45 +101,23 @@ export default class Home extends Component {
                             </FormGroup>
                         </Form>
 
+                        <Button bsStyle="primary" type="button" onClick={this.handleSearchClick}>Search</Button>
+
                         {/* Table that houses the Accounts */}
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>Account Name</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>BOUND</td>
-                                    <td>John Thomas, LLC.</td>
-                                    <td>July 8, 2018</td>
-                                </tr>
-                                <tr>
-                                    <td>BOUND</td>
-                                    <td>Carol Danvers</td>
-                                    <td>July 8, 2018</td>
-                                </tr>
-                                <tr>
-                                    <td>QUOTE</td>
-                                    <td>Scott Summers, Trust</td>
-                                    <td>July 8, 2018</td>
-                                </tr>
-                            </tbody>
-                        </Table>
+
+                        <AccountList accounts={this.state.accounts} />
                     </Col>
 
-                    <Col xs={12} md={9}>
+                    <Col xs={12} md={8}>
                         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                             <Tab eventKey={1} title="Account Information">
-                            <AccountDisplay />
+                                <AccountDisplay />
                             </Tab>
                             <Tab eventKey={2} title="Advanced Search">
                                 <AdvancedSearch />
                             </Tab>
                             <Tab eventKey={3} title="Reports">
-                                Reports Aggregation 
+                                Reports Aggregation
                             </Tab>
                         </Tabs>
 

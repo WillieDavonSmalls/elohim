@@ -19,6 +19,23 @@ var models = {
   
   },
 
+  searchAccounts: function(accountname, callback) {
+    var queryString = 
+    `select BORDEREAUID, STATUS, DATE_FORMAT(SUBMITDATE, "%W %M %e %Y") as SUBMITDATE,  INSUREDNAME 
+    from tblbordereau 
+    where INSUREDNAME like '%${accountname}%'
+    order by SUBMITDATE desc;`; 
+    
+    connection.query(queryString, function(error, result) {
+      // connection.end();
+        if (error) return callback(error);
+
+        // console.log(result);
+        callback(result);
+    });
+  
+  },
+
   selectAccount: function(bordereauid, callback) {
     var queryString =  
     `SELECT tblbordereau.BORDEREAUID, STATUS, SubmitDate, InsuredName, ProgramAdministrator, PolicyNumber, EffectiveDate, ExpirationDate, 
