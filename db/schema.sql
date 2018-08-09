@@ -69,7 +69,7 @@ CREATE TABLE tblcomments(
 
 
 --#Schema for user validation table
-CREATE TABLE IF NOT EXISTS userauth (
+CREATE TABLE IF NOT EXISTS tbluserauth (
 	user VARCHAR(20) NOT NULL, 
     user_password VARCHAR(20) NOT NULL,
     PRIMARY KEY(user)

@@ -1004,4 +1004,4 @@ INSERT INTO tblbordereau (BORDEREAUID, REQUESTID, Status, SubmitDate, InternalAp
 
 
 -- User auth update 
-INSERT INTO userauth (user, user_password) VALUES('pcg','pcg');
+INSERT INTO tbluserauth (user, user_password) VALUES('pcg','pcg');
