@@ -6,6 +6,8 @@ import './home.css'
 import AdvancedSearch from './advancedsearch';
 import AccountDisplay from './accountdisplay';
 import AccountList from './accounttbl';
+import CommentsForm from './commentsform';
+
 
 
 export default class Home extends Component {
@@ -17,6 +19,7 @@ export default class Home extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSearchClick = this.handleSearchClick.bind(this);
         this.updateAccountDisplay = this.updateAccountDisplay.bind(this);
+        this.handleBordereauClick = this.handleBordereauClick.bind(this);
 
         this.state = {
             value: '',
@@ -60,6 +63,20 @@ export default class Home extends Component {
         .then(data => this.setState({ accounts: data }))
     }
 
+    handleBordereauClick() {
+        alert(this.state.value)
+        const options = {
+            method: "post",
+            body: JSON.stringify({account : this.state.value}),
+            headers:{
+                "content-type":"application/json"
+            }
+            
+        }
+        fetch("/api/searchaccount", options)
+        .then(results => results.json())
+        .then(data => this.setState({ accounts: data }))
+    }
 
 
     updateAccountDisplay(bordereauid){
@@ -111,12 +128,10 @@ export default class Home extends Component {
                         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                             <Tab eventKey={1} title="Account Information">
                                 <AccountDisplay accountdata={this.state.accountdata}/>
+                                <CommentsForm accountdata={this.state.accountdata.bordereauid}/>
                             </Tab>
                             <Tab eventKey={2} title="Advanced Search">
                                 <AdvancedSearch />
-                            </Tab>
-                            <Tab eventKey={3} title="Reports">
-                                Reports Aggregation
                             </Tab>
                         </Tabs>
 

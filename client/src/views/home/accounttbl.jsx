@@ -13,7 +13,7 @@ export default class AccountList extends Component {
     render() {
 
         return (
-                <div className="">
+                <div className="changeHeight">
                     <Table className="accountTable">
                         <thead>
                             <tr>

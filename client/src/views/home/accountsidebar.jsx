@@ -40,7 +40,7 @@ export default class CommentsForm extends Component {
             <div>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label htmlFor="user_comment" md={}>New Comments</Label>
+                        <Label htmlFor="user_comment" md={12}>New Comments</Label>
                         <Col md={10}>
                             <input type="text" id="user_comment" name="user_comment" placeholder="Enter comments"
                                 rows="12"

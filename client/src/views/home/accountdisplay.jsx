@@ -85,22 +85,7 @@ export default class AccountDisplay extends Component {
                 {/* Exposure Information */}
                 <Col xs={12} md={12}>
                     <Row>
-                        <h5>COMMENTS SECTION:</h5>
-                        {/* current comments */}
-                        <Col xs={12} md={6}>
-                            <p>Comments:</p>
-                            <Col xs={12} md={12}>
-                                <ListGroup>
-                                    <ListGroupItem>Item 1</ListGroupItem>
-                                    <ListGroupItem>Item 2</ListGroupItem>
-                                    <ListGroupItem>...</ListGroupItem>
-                                </ListGroup>
-                            </Col>
-                        </Col>
-                        {/* New comments */}
-                        <Col xs={12} md={6}>
-                            <CommentsForm />
-                        </Col>
+                        <h5>COMMENTS:</h5>
                     </Row>
                 </Col>
             </div>

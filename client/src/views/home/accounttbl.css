@@ -7,3 +7,7 @@ td{
     align-content: center;
 }
 tr:nth-child(even) {background-color: #cdcdcd;}
+
+.changeHeight{
+    height: 400px; 
+}

@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       password: '',
       username: ''
     }
@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleLogIn(event) {
-    alert('Current State is: ' + JSON.stringify(this.state));
+    // alert('Current State is: ' + JSON.stringify(this.state));
     console.log('Current State is: ' + JSON.stringify(this.state));
     event.preventDefault();
     const options = {
