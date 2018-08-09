@@ -45,7 +45,7 @@ router.post("/api/validatelogin", function(request, result) {
   // console.log(request.body.usercredentials.username, request.body.usercredentials.password);
   models.userLogin(request.body.usercredentials, function(data) {
   result.send(data);
-  console.log(data);
+  console.log('post', data[0]);
   });
 });
 

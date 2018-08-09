@@ -68,10 +68,11 @@ var models = {
     var userpassword = usercredentials.password; 
     var queryString = `SELECT EXISTS(select 1 from tbluserauth where user = '${username}' and user_password = '${userpassword}')`
     // console.log(queryString);
-    connection.query(queryString, function(error, result){
+    connection.query(queryString, function(error, rows){
       // console.log(queryString);
       if (error) return callback(error);
-      callback(result);
+      console.log('models', rows);
+      callback(rows);
     })
   }
 

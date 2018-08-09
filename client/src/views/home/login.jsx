@@ -44,7 +44,7 @@ export default class LoginPage extends Component {
 
         fetch("/api/validatelogin", options)
             .then(response => response.json())
-            .then(data => (this.setState({ loggedIn: data })))
+            .then(data => (console.log(data), this.setState({ loggedIn: data[0]})))
     }
 
     render() {
@@ -69,6 +69,7 @@ export default class LoginPage extends Component {
                     <Button type="submit" color="primary"> Login </Button>
                 </Form>
             </div>
+
         );
     }
 }
