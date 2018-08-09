@@ -62,8 +62,15 @@ CREATE TABLE tblbordereau(
 
 -- #Schema for comments synthetic data 
 CREATE TABLE tblcomments(
-     ID MEDIUMINT NOT NULL AUTO_INCREMENT,
      BORDEREAUID bigint NOT NULL,
      COMMENTS varchar(255),
-     PRIMARY KEY (ID)
+     PRIMARY KEY (BORDEREAUID)
 );
+
+
+--#Schema for user validation table
+CREATE TABLE IF NOT EXISTS userauth (
+	user VARCHAR(20) NOT NULL, 
+    user_password VARCHAR(20) NOT NULL,
+    PRIMARY KEY(user)
+    );
