@@ -9,6 +9,6 @@ td{
 tr:nth-child(even) {background-color: #cdcdcd;}
 
 .changeHeight{
-    height: 600px;
+    height: 550px;
     overflow: scroll;
 }
