@@ -18,7 +18,6 @@ class App extends Component {
 
   }
 
-
  
   render() {
     const isLoggedIn = this.state.loggedIn
@@ -27,7 +26,6 @@ class App extends Component {
       <Router>
         <div> 
           <Navbar/>
-          {/* <Route exact path="/login" render ={() => <Login/>} /> */}
           <Route exact path="/login" render ={() => <Login handleLogIn={this.handleLogIn} />} />
           {/* <Route exact path="/signin" render ={() => <Login handleLogIn={this.handleLogIn} />} /> */}
           <Route exact path="/" render ={() => isLoggedIn ? <Home/> : <Redirect to="/login" />} />
