@@ -44,16 +44,6 @@ export default class Home extends Component {
         this.setState({ value: e.target.value });
     }
 
-    //Button
-    // constructor(props, context) {
-    //   super(props, context);
-
-    //   this.handleClick = this.handleClick.bind(this);
-
-    //   this.state = {
-    //     isLoading: false
-    //   };
-    // }
 
     handleSearchClick() {
         alert(this.state.value)
@@ -70,16 +60,6 @@ export default class Home extends Component {
         .then(data => this.setState({ accounts: data }))
     }
 
-    handleClick() {
-        this.setState({ isLoading: true });
-
-        // This probably where you would have an `ajax` call
-        setTimeout(() => {
-            // Completed of async action, set loading state back
-            this.setState({ isLoading: false });
-        }, 2000);
-    }
-    //////////////
 
 
     updateAccountDisplay(bordereauid){

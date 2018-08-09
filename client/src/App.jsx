@@ -4,24 +4,25 @@ import Navbar from './views/home/home_navbar'
 import Home from './views/home/home';
 import About from './views/home/about';
 import Contact from './views/home/contact';
+import Login from './views/home/login'
 import './App.css';
 
-// TODO: MOve to login.jsx
-class Login extends Component {
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.props.handleLogIn}>
-          <label>Username: </label>
-          <input type="text" placeholder="Enter username" />
-          <label>Password: </label>
-          <input type="password" placeholder="Enter password" />
-          <button type="submit">login</button>
-        </form>
-      </div>
-    );
-  }
-}
+// TODO: Move to login.jsx
+// class Login extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.props.handleLogIn}>
+//           <label>Username: </label>
+//           <input type="text" placeholder="Enter username" value={this.state.username}/>
+//           <label>Password: </label>
+//           <input type="password" placeholder="Enter password" value={this.state.password}/>
+//           <button type="submit">login</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
 
 class App extends Component {
   constructor(props) {
@@ -29,17 +30,32 @@ class App extends Component {
 
     this.state = {
       loggedIn: true
+      // , 
+      // password: '', 
+      // username: ''
     }
 
-    this.handleLogIn = this.handleLogIn.bind(this)
+    // this.handleLogIn = this.handleLogIn.bind(this)
   }
+
+  
 
   handleLogIn() {
-    // fetch("/api/validateLogin")
-    // .then(response => response.json())
-    // .then(data => (console.log(data), this.setState({loggedIn: data})))
+    alert('username:' + this.state.username + 'password: ' + this.state.password);
+  //   const options = {
+  //     method: "post",
+  //     body: JSON.stringify({account : this.state.value}),
+  //     headers:{
+  //         "content-type":"application/json"
+  //     }
+      
   }
 
+  //   // fetch("/api/validateLogin")
+  //   // .then(response => response.json())
+  //   // .then(data => (console.log(data), this.setState({loggedIn: data})))
+  // }
+ 
   render() {
     const isLoggedIn = this.state.loggedIn
 
@@ -47,7 +63,8 @@ class App extends Component {
       <Router>
         <div> 
           <Navbar/>
-          <Route exact path="/login" render ={() => <Login handleLogIn={this.handleLogIn} />} />
+          <Route exact path="/login" render ={() => <Login/>} />
+          {/* <Route exact path="/login" render ={() => <Login handleLogIn={this.handleLogIn} />} /> */}
           {/* <Route exact path="/signin" render ={() => <Login handleLogIn={this.handleLogIn} />} /> */}
           <Route exact path="/" render ={() => isLoggedIn ? <Home/> : <Redirect to="/login" />} />
           <Route exact path="/about" render ={() => isLoggedIn ? <About/> : <Redirect to="/login" />} />
