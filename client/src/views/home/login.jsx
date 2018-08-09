@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, Label, Button, Form, Col, Row } from 'react-bootstrap';
 
 
-export default class AdvancedSearchForm extends Component {
+export default class LoginPage extends Component {
 
 
     constructor(props) {
@@ -29,13 +29,25 @@ export default class AdvancedSearchForm extends Component {
 
     // }
 
-    handleInputChange(e) {
-        this.setState({ value: e.target.value });
+    // handleInputChange(e) {
+    //     this.setState({ value: e.target.value });
+    // }
+
+    handleInputChange(event){
+        const target = event.target; 
+        const value =  target.value; 
+        const name = target.name;  
+
+        this.setState({
+            [name] : value
+        })
+
     }
 
-      handleLogIn() {
-        alert('username:' + this.state.username + 'password: ' + this.state.password);
-        console.log(this.state.username, this.state.password);
+      handleLogIn(event) {
+        alert('Current State is: ' + JSON.stringify(this.state));
+        console.log('Current State is: ' + JSON.stringify(this.state));
+        event.preventDefault();
       //   const options = {
       //     method: "post",
       //     body: JSON.stringify({account : this.state.value}),
@@ -52,15 +64,28 @@ export default class AdvancedSearchForm extends Component {
 
       render() {
         return (
-          <div>
-            <form onSubmit={this.props.handleLogIn}>
-              <label>Username: </label>
-              <input type="text" placeholder="Enter Username" id="username" name= "username" value={this.state.username} onChange={this.handleInputChange}/>
-              <label>Password: </label>
-              <input type="password" placeholder="Enter Password" id="password" name= "password" value={this.state.password} onChange={this.handleInputChange}/>
-              <button type="submit">login</button>
-            </form>
-          </div>
+
+        <div>
+        <Form onSubmit={this.handleLogIn}>
+<Col xs={12} md={4}>
+    <FormGroup>
+        <Label htmlFor="username"> Username: </Label>
+        <input type="text" id="username" name="username" placeholder="Enter Username"
+            value={this.state.username} 
+            onChange={this.handleInputChange}/>
+    </FormGroup>
+    <FormGroup>
+        <Label htmlFor="password"> End Date: </Label>
+        <input type="text" id="password" name="password" placeholder="Enter Password"
+            value={this.state.pasword} 
+            onChange={this.handleInputChange}/>
+    </FormGroup>
+</Col>
+<Button type="submit" color="primary"> Login </Button>
+</Form>
+</div>
         );
       }
 }
+
+

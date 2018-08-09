@@ -40,16 +40,16 @@ class App extends Component {
 
   
 
-  handleLogIn() {
-    alert('username:' + this.state.username + 'password: ' + this.state.password);
-  //   const options = {
-  //     method: "post",
-  //     body: JSON.stringify({account : this.state.value}),
-  //     headers:{
-  //         "content-type":"application/json"
-  //     }
+  // handleLogIn() {
+  //   alert('username:' + this.state.username + 'password: ' + this.state.password);
+  // //   const options = {
+  // //     method: "post",
+  // //     body: JSON.stringify({account : this.state.value}),
+  // //     headers:{
+  // //         "content-type":"application/json"
+  // //     }
       
-  }
+  // }
 
   //   // fetch("/api/validateLogin")
   //   // .then(response => response.json())
@@ -63,8 +63,8 @@ class App extends Component {
       <Router>
         <div> 
           <Navbar/>
-          <Route exact path="/login" render ={() => <Login/>} />
-          {/* <Route exact path="/login" render ={() => <Login handleLogIn={this.handleLogIn} />} /> */}
+          {/* <Route exact path="/login" render ={() => <Login/>} /> */}
+          <Route exact path="/login" render ={() => <Login handleLogIn={this.handleLogIn} />} />
           {/* <Route exact path="/signin" render ={() => <Login handleLogIn={this.handleLogIn} />} /> */}
           <Route exact path="/" render ={() => isLoggedIn ? <Home/> : <Redirect to="/login" />} />
           <Route exact path="/about" render ={() => isLoggedIn ? <About/> : <Redirect to="/login" />} />

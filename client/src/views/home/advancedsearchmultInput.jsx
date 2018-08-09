@@ -118,8 +118,6 @@ export default class AdvancedSearchForm extends Component {
                         <Button type="submit" color="primary"> Search </Button>
                     </Col>
 
-
-
                 </Form>
 
             </div>
