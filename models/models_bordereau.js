@@ -92,6 +92,26 @@ var models = {
     });
   },
 
+    //Extracts full account information  for single account after on click of row in left sidebar, for main page
+    advancedSearch: function(dates, callback) {
+      var start_date = dates.start_date; 
+      var end_date = dates.end_date; 
+      
+      var queryString =  
+      `SELECT tblbordereau.BORDEREAUID, STATUS, SubmitDate, InsuredName, ProgramAdministrator, PolicyNumber, EffectiveDate, ExpirationDate, 
+      StatusCode, TransactionDate, StreetAddress, City, County, State, Zip, OccupiedBy, ConstructionType, YearBuilt, NumStories, YearRefurbished, 
+      SqFootage, PrimaryFloodCoveredFlag, WSDedPerc, AOPDed, EQDedPerc, HOCovLim_A, HOCovLim_B, HOCovLim_C, HOCovLim_D, HOCovLim_E, 
+      concat('$', format(HOCovLim_F,0)),
+      RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing, COMMENTS
+      FROM tblbordereau left join tblcomments on tblbordereau.BORDEREAUID = tblcomments.BORDEREAUID
+      where SubmitDate > '${start_date}' and SubmitDate < '${end_date}'
+      order by SUBMITDATE desc;`; 
+      connection.query(queryString, function(error, result) {
+          if (error) return callback(error);
+          callback(result);
+      });
+    },
+
 }
 
 

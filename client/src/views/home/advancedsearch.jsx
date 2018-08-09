@@ -29,8 +29,7 @@ export default class AdvancedSearchForm extends Component {
     }
 
     handleSubmit(event){
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert("current state is: " + JSON.stringify(this.state));
+        alert("current state is: " + this.state.start_date + this.state.end_date);
         event.preventDefault();
     }
 
