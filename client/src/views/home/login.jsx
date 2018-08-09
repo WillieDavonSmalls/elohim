@@ -18,21 +18,6 @@ export default class LoginPage extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
       }
 
-    //   handleInputChange(event){
-    //     const target = event.target; 
-    //     const value = target.type === 'checkbox' ? target.checked : target.value; 
-    //     const name = target.name;  
-
-    //     this.setState({
-    //         [name] : value
-    //     })
-
-    // }
-
-    // handleInputChange(e) {
-    //     this.setState({ value: e.target.value });
-    // }
-
     handleInputChange(event){
         const target = event.target; 
         const value =  target.value; 
@@ -48,18 +33,18 @@ export default class LoginPage extends Component {
         alert('Current State is: ' + JSON.stringify(this.state));
         console.log('Current State is: ' + JSON.stringify(this.state));
         event.preventDefault();
-      //   const options = {
-      //     method: "post",
-      //     body: JSON.stringify({account : this.state.value}),
-      //     headers:{
-      //         "content-type":"application/json"
-      //     }
+        const options = {
+          method: "post",
+          body: JSON.stringify({usercredentials: this.state}),
+          headers:{
+              "content-type":"application/json"
+          }
           
-      // }
+      }
     
-        // fetch("/api/validateLogin")
-        // .then(response => response.json())
-        // .then(data => (console.log(data), this.setState({loggedIn: data})))
+        fetch("/api/validatelogin", options)
+        .then(response => response.json())
+        .then(data => (console.log(data), this.setState({loggedIn: data})))
       }
 
       render() {

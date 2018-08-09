@@ -7,54 +7,18 @@ import Contact from './views/home/contact';
 import Login from './views/home/login'
 import './App.css';
 
-// TODO: Move to login.jsx
-// class Login extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <form onSubmit={this.props.handleLogIn}>
-//           <label>Username: </label>
-//           <input type="text" placeholder="Enter username" value={this.state.username}/>
-//           <label>Password: </label>
-//           <input type="password" placeholder="Enter password" value={this.state.password}/>
-//           <button type="submit">login</button>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loggedIn: true
-      // , 
-      // password: '', 
-      // username: ''
+      loggedIn: false
     }
 
-    // this.handleLogIn = this.handleLogIn.bind(this)
   }
 
-  
 
-  // handleLogIn() {
-  //   alert('username:' + this.state.username + 'password: ' + this.state.password);
-  // //   const options = {
-  // //     method: "post",
-  // //     body: JSON.stringify({account : this.state.value}),
-  // //     headers:{
-  // //         "content-type":"application/json"
-  // //     }
-      
-  // }
-
-  //   // fetch("/api/validateLogin")
-  //   // .then(response => response.json())
-  //   // .then(data => (console.log(data), this.setState({loggedIn: data})))
-  // }
  
   render() {
     const isLoggedIn = this.state.loggedIn

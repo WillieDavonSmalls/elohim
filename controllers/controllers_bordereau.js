@@ -40,11 +40,12 @@ router.post("/api/extractaccount", function(request, result) {
 });
 
 //Extracts full account information  for single account after on click of row in left sidebar, for main page
-router.post("/api/validateLogin", function(request, result) {
-  models.selectAccount(request.body.bordereauid,function(data) {
-  // console.log('hello', request.body.bordereauid);
+router.post("/api/validatelogin", function(request, result) {
+  console.log(request.body.usercredentials)
+  // console.log(request.body.usercredentials.username, request.body.usercredentials.password);
+  models.userLogin(request.body.usercredentials, function(data) {
   result.send(data);
-  // console.log(data);
+  console.log(data);
   });
 });
 
