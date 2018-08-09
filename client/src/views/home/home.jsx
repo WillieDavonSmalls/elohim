@@ -16,11 +16,12 @@ export default class Home extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSearchClick = this.handleSearchClick.bind(this);
-        
+        this.updateAccountDisplay = this.updateAccountDisplay.bind(this);
 
         this.state = {
             value: '',
-            accounts: []
+            accounts: [], 
+            accountdata: {}
         };
     }
 
@@ -80,6 +81,24 @@ export default class Home extends Component {
     }
     //////////////
 
+
+    updateAccountDisplay(bordereauid){
+        // console.log('testdata',bordereauid);
+        const options = {
+            method: "post",
+            body: JSON.stringify({'bordereauid' : bordereauid}),
+            headers:{
+                "content-type":"application/json"
+            }
+            
+        }
+        fetch("/api/extractaccount", options)
+        .then(results => results.json())
+        .then(data => this.setState({ accountdata: data[0] }))//data position zero, watch if data is empty program will crash
+    }
+
+
+
     render() {
 
         return (
@@ -105,13 +124,13 @@ export default class Home extends Component {
 
                         {/* Table that houses the Accounts */}
 
-                        <AccountList accounts={this.state.accounts} />
+                        <AccountList accounts={this.state.accounts} updateAccountDisplay={this.updateAccountDisplay} />
                     </Col>
 
                     <Col xs={12} md={8}>
                         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                             <Tab eventKey={1} title="Account Information">
-                                <AccountDisplay />
+                                <AccountDisplay accountdata={this.state.accountdata}/>
                             </Tab>
                             <Tab eventKey={2} title="Advanced Search">
                                 <AdvancedSearch />

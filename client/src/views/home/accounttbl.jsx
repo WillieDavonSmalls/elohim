@@ -3,11 +3,10 @@ import { Table } from 'react-bootstrap';
 import './accounttbl.css'
 
 export default class AccountList extends Component {
-    handleClick(event) {        
-        const target = event.target;
-        const value = target.key; 
+    handleClick(bourdereauid) {
+        this.props.updateAccountDisplay(bourdereauid);
 
-        alert('The link was clicked. hello', value);
+        // alert('The link was clicked. hello ' + bourdereauid);
     }
 
     
@@ -25,7 +24,7 @@ export default class AccountList extends Component {
                         </thead>
                         <tbody className="accountTable">
                             {this.props.accounts.map(account =>
-                                <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID} onClick={this.handleClick}>
+                                <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID} onClick={() => this.handleClick(account.BORDEREAUID)}>
                                     <td>{account.STATUS} </td>
                                     <td>{account.INSUREDNAME}</td>
                                     <td>{account.SUBMITDATE}</td>
