@@ -40,8 +40,8 @@ var models = {
     concat('$', format(HOCovLim_A, 0)) HOCovLim_A, concat('$', format(HOCovLim_B, 0)) HOCovLim_B, 
     concat('$', format(HOCovLim_C, 0)) HOCovLim_C, concat('$', format(HOCovLim_D, 0)) HOCovLim_D, 
     concat('$', format(HOCovLim_E, 0)) HOCovLim_E, concat('$', format(HOCovLim_F, 0)) HOCovLim_F, 
-    RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing, COMMENTS
-    FROM tblbordereau left join tblcomments on tblbordereau.BORDEREAUID = tblcomments.BORDEREAUID
+    RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing
+    FROM tblbordereau
     where tblbordereau.BORDEREAUID = ${bordereauid}`; 
     connection.query(queryString, function(error, result) {
         if (error) return callback(error);
@@ -78,7 +78,19 @@ var models = {
       // console.log('models', rows);
       callback(rows);
     })
-  }
+  },
+
+  //Extracts full account information  for single account after on click of row in left sidebar, for main page
+  selectComments: function(bordereauid, callback) {
+    var queryString =  
+    `SELECT BORDEREAUID, COMMENTS
+    FROM tblcomments
+    where tblcomments.BORDEREAUID = ${bordereauid}`; 
+    connection.query(queryString, function(error, result) {
+        if (error) return callback(error);
+        callback(result);
+    });
+  },
 
 }
 

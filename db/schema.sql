@@ -74,3 +74,25 @@ CREATE TABLE IF NOT EXISTS tbluserauth (
     user_password VARCHAR(20) NOT NULL,
     PRIMARY KEY(user)
     );
+
+
+
+	CREATE TABLE tblcomments(
+     BORDEREAUID bigint NOT NULL,
+     COMMENTS varchar(255)
+);
+
+insert into tblcomments(BORDEREAUID, COMMENTS) 
+VALUES ('145','Great Account'),
+('1000','Account has Sandy Loss Experience'),
+('200','Account has had two claimes'),
+('1000','Account has Sandy Loss Experience'),
+('100','Account has had two claimes'),
+('145','Account has Irene Loss Experience'),
+('625','Account has had two claimes'),
+('335','Account has Ike Loss Experience'),
+('34','Account has had two claimes'),
+('101','Account has Rita Loss Experience'),
+('333','Account has had two claimes'),
+('299','Account has Maria Loss Experience'),
+('23','Account has had two claimes')

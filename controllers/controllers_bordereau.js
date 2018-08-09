@@ -53,7 +53,7 @@ router.post("/api/validatelogin", function(request, result) {
     if (validation === 1){
       validation = true; 
     } else {validation = false;}
-    
+
     validation = {validation: validation};
     console.log(validation);
 
@@ -70,7 +70,14 @@ router.get("/api/all", function(request, result) {
   });
 });
 
-
+//Extracts full account information  for single account after on click of row in left sidebar, for main page
+router.post("/api/extractcomments", function(request, result) {
+  models.selectAccount(request.body.bordereauid,function(data) {
+  // console.log('hello', request.body.bordereauid);
+  result.send(data);
+  // console.log(data);
+  });
+});
 
 // Export routes for server.js to use.
 module.exports = router;
