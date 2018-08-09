@@ -47,14 +47,17 @@ router.post("/api/validatelogin", function(request, result) {
     
     // result.send(data);
 
-    let validation; 
-    for(let key in data[0]) { validation = data[0][key]; }
+    var validation; 
+    for(var key in data[0]) { validation = data[0][key]; }
 
+    if (validation === 1){
+      validation = true; 
+    } else {validation = false;}
+    
     validation = {validation: validation};
     console.log(validation);
 
     result.send(validation);
-
 
   });
 });
