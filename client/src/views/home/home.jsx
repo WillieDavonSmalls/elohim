@@ -49,7 +49,7 @@ export default class Home extends Component {
 
 
     handleSearchClick() {
-        alert(this.state.value)
+        // alert(this.state.value)
         const options = {
             method: "post",
             body: JSON.stringify({account : this.state.value}),
@@ -64,7 +64,7 @@ export default class Home extends Component {
     }
 
     handleBordereauClick() {
-        alert(this.state.value)
+        // alert(this.state.value)
         const options = {
             method: "post",
             body: JSON.stringify({account : this.state.value}),
@@ -133,6 +133,7 @@ export default class Home extends Component {
                             <Tab eventKey={2} title="Advanced Search">
                                 <AdvancedSearch />
                             </Tab>
+
                         </Tabs>
 
                     </Col>

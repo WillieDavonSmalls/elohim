@@ -81,14 +81,14 @@ router.post("/api/extractcomments", function(request, result) {
 
 //Extracts full account information  for single account after on click of row in left sidebar, for main page
 router.post("/api/advancedsearch", function(request, result) {
-  console.log(request.body.dates)
+  console.log(request.body)
   // console.log(request.body.usercredentials.username, request.body.usercredentials.password);
-  models.userLogin(request.body.dates, function(data) {
+  // models.userLogin(request.body.dates, function(data) {
     
-    // result.send(data);
-    result.send(data);
+  //   // result.send(data);
+  //   result.send(data);
 
-  });
+  // });
 });
 
 

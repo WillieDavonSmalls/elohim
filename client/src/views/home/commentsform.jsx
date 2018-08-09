@@ -39,12 +39,10 @@ export default class CommentsForm extends Component {
         return (
             <Row>
                 <Col xs={12} md={6}>
-                            <p>Comments:</p>
                             <Col xs={12} md={12}>
                                 <ListGroup>
-                                    <ListGroupItem>Item 1</ListGroupItem>
-                                    <ListGroupItem>Item 2</ListGroupItem>
-                                    <ListGroupItem>...</ListGroupItem>
+                                    <ListGroupItem>This account has significant loss exprience</ListGroupItem>
+                                    <ListGroupItem>Rita and Ike Claims</ListGroupItem>
                                 </ListGroup>
                             </Col>
                         </Col>

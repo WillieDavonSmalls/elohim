@@ -23,14 +23,31 @@ export default class AdvancedSearchForm extends Component {
         const name = target.name;  
 
         this.setState({
-            [name] : value
+            [name] : value,
+            searchdata: {}
         })
 
     }
 
     handleSubmit(event){
-        alert("current state is: " + this.state.start_date + this.state.end_date);
+
+        // alert("current state is: " + this.state.start_date + this.state.end_date);
         event.preventDefault();
+
+        const options = {
+            method: "post",
+            body: JSON.stringify({searchdates: this.state}),
+            headers: {
+                "content-type": "application/json"
+            }
+    
+        }
+    
+        fetch("/api/advancedsearch", options)
+        .then(results => results.json())
+        .then(data => this.setState({ searchdata: data }))
+    
+
     }
 
 
@@ -44,13 +61,13 @@ export default class AdvancedSearchForm extends Component {
                     <Col xs={12} md={12}>
                         <FormGroup>
                             <Label htmlFor="start_date"> Start Date: </Label>
-                            <input type="text" id="start_date" name="start_date" placeholder="Start Date"
+                            <input type="text" id="start_date" name="start_date" placeholder="YYYY-MM-DD Format"
                                 value={this.state.start_date} 
                                 onChange={this.handleInputChange}/>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="end_date"> End Date: </Label>
-                            <input type="text" id="end_date" name="end_date" placeholder="End Date"
+                            <input type="text" id="end_date" name="end_date" placeholder="YYYY-MM-DD Format"
                                 value={this.state.end_date} 
                                 onChange={this.handleInputChange}/>
                         </FormGroup>
