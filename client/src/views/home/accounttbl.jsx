@@ -14,7 +14,7 @@ export default class AccountList extends Component {
 
         return (
                 <div className="changeHeight">
-                    <Table className="accountTable">
+                    <Table className="accountTable" >
                         <thead>
                             <tr>
                                 <th align="center">Status</th>

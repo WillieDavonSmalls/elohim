@@ -61,7 +61,7 @@ export default class CommentsForm extends Component {
                             </FormGroup>
                         </Form>
 
-                        <Button bsStyle="success" type="button" onClick={this.handleSearchClick}>Submit</Button>
+                        <Button bsStyle="success" type="button" onClick={this.handleSubmit}>Submit</Button>
                     </Col>
                     </Row>
 
