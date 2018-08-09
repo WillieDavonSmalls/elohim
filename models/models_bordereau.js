@@ -33,12 +33,16 @@ var models = {
 //Extracts full account information  for single account after on click of row in left sidebar, for main page
   selectAccount: function(bordereauid, callback) {
     var queryString =  
-    `SELECT tblbordereau.BORDEREAUID, STATUS, SubmitDate, InsuredName, ProgramAdministrator, PolicyNumber, EffectiveDate, ExpirationDate, 
-    StatusCode, TransactionDate, StreetAddress, City, County, State, Zip, OccupiedBy, ConstructionType, YearBuilt, YearRefurbished, 
-    SqFootage, PrimaryFloodCoveredFlag, WSDedPerc, AOPDed, EQDedPerc, HOCovLim_A, HOCovLim_B, HOCovLim_C, HOCovLim_D, HOCovLim_E, HOCovLim_F,
+    `SELECT tblbordereau.BORDEREAUID, STATUS, SubmitDate, InsuredName, ProgramAdministrator, PolicyNumber, 
+    DATE_FORMAT(EffectiveDate, "%W %M %e %Y") EffectiveDate, DATE_FORMAT(ExpirationDate, "%W %M %e %Y") ExpirationDate, 
+    StatusCode, DATE_FORMAT(TransactionDate, "%W %M %e %Y") TransactionDate, StreetAddress, City, County, State, Zip, OccupiedBy, ConstructionType, YearBuilt, YearRefurbished, NumStories,
+    format(SqFootage, 0) SqFootage, PrimaryFloodCoveredFlag, WSDedPerc, concat('$', format(AOPDed, 0)) AOPDed, EQDedPerc, 
+    concat('$', format(HOCovLim_A, 0)) HOCovLim_A, concat('$', format(HOCovLim_B, 0)) HOCovLim_B, 
+    concat('$', format(HOCovLim_C, 0)) HOCovLim_C, concat('$', format(HOCovLim_D, 0)) HOCovLim_D, 
+    concat('$', format(HOCovLim_E, 0)) HOCovLim_E, concat('$', format(HOCovLim_F, 0)) HOCovLim_F, 
     RoofAge, RoofType, OpeningProtection,  RoofConnection, RoofSheathing, COMMENTS
     FROM tblbordereau left join tblcomments on tblbordereau.BORDEREAUID = tblcomments.BORDEREAUID
-    where tblbordereau.BORDEREAUID = ${bordereauid}`;
+    where tblbordereau.BORDEREAUID = ${bordereauid}`; 
     connection.query(queryString, function(error, result) {
         if (error) return callback(error);
         callback(result);
@@ -71,7 +75,7 @@ var models = {
     connection.query(queryString, function(error, rows){
       // console.log(queryString);
       if (error) return callback(error);
-      console.log('models', rows);
+      // console.log('models', rows);
       callback(rows);
     })
   }

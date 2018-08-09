@@ -14,7 +14,7 @@ export default class AccountDisplay extends Component {
                 {/* Heading */}
                 <Row>
                     <Col xs={12} md={12}>
-                        <h3>{this.props.accountdata.State}</h3>
+                        <h3>{this.props.accountdata.InsuredName}</h3>
                         <p><strong>{this.props.accountdata.StreetAddress}</strong></p>
                         <p><strong>{this.props.accountdata.City} {this.props.accountdata.State} {this.props.accountdata.Zip}</strong></p>
                     </Col>
@@ -25,11 +25,12 @@ export default class AccountDisplay extends Component {
                     <Col xs={12} md={12}>
                         <h5>BOUND RISK:</h5>
                         <Col xs={12} md={6}>
-                            <p><strong>Policy Number: </strong>{this.props.accountdata.InsuredName}</p>
-                            <p><strong>Transaction: </strong>{this.props.accountdata.InsuredName}</p>
-                            <p><strong>Policy Effective Date: </strong>{this.props.accountdata.InsuredName}</p>
-                            <p><strong>Transaction Effective Date: </strong>{this.props.accountdata.InsuredName}</p>
-                            <p><strong>Occupied By: </strong>{this.props.accountdata.InsuredName}</p>
+                            <p><strong>Policy Number: </strong>{this.props.accountdata.PolicyNumber}</p>
+                            <p><strong>Transaction: </strong>{this.props.accountdata.StatusCode}</p>
+                            <p><strong>Policy Effective Date: </strong>{this.props.accountdata.EffectiveDate}</p>
+                            <p><strong>Policy Expiration Date: </strong>{this.props.accountdata.ExpirationDate}</p>
+                            <p><strong>Transaction Date: </strong>{this.props.accountdata.TransactionDate}</p>
+                            <p><strong>Occupied By: </strong>{this.props.accountdata.OccupiedBy}</p>
                         </Col>
                     </Col>
                 </Row>
@@ -44,15 +45,13 @@ export default class AccountDisplay extends Component {
                             <p>Coverage B: {this.props.accountdata.HOCovLim_B}</p>
                             <p>Coverage C: {this.props.accountdata.HOCovLim_C}</p>
                             <p>Coverage D: {this.props.accountdata.HOCovLim_D}</p>
-                            <p>Coverage E: 1{this.props.accountdata.HOCovLim_E}</p>
+                            <p>Coverage E: {this.props.accountdata.HOCovLim_E}</p>
                             <p>Coverage F: {this.props.accountdata.HOCovLim_F}</p>
-                            <p>Total Insured Value (TIV): {this.props.accountdata.HOCovLim_A}</p>
                         </Col>
                         <Col xs={12} md={6}>
                             <p><i><strong>Deductible and Flood Policy Information:</strong></i></p>
-                            <p>Wind: {this.props.accountdata.WSDedPerc}</p>
-                            <p>Earthquake: {this.props.accountdata.EQDedPerc}</p>
-                            <p>WS Site Ded as % of A: {this.props.accountdata.WSDedPerc}</p>
+                            <p>Wind: {this.props.accountdata.WSDedPerc}%</p>
+                            <p>Earthquake: {this.props.accountdata.EQDedPerc}%</p>
                             <p>AOP Deductible: {this.props.accountdata.AOPDed}</p>
                             <p>Primary Flood Insurance Policy: {this.props.accountdata.PrimaryFloodCoveredFlag}</p>
                         </Col>

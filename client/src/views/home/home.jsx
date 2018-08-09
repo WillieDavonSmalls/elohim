@@ -100,7 +100,7 @@ export default class Home extends Component {
                             </FormGroup>
                         </Form>
 
-                        <Button bsStyle="primary" type="button" onClick={this.handleSearchClick}>Search</Button>
+                        <Button bsStyle="success" type="button" onClick={this.handleSearchClick}>Search</Button>
 
                         {/* Table that houses the Accounts */}
 

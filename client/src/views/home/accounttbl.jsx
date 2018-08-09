@@ -14,7 +14,7 @@ export default class AccountList extends Component {
 
         return (
                 <div className="">
-                    <Table className="">
+                    <Table className="accountTable">
                         <thead>
                             <tr>
                                 <th align="center">Status</th>
@@ -22,7 +22,7 @@ export default class AccountList extends Component {
                                 <th align="center">Date</th>
                             </tr>
                         </thead>
-                        <tbody className="accountTable">
+                        <tbody className="">
                             {this.props.accounts.map(account =>
                                 <tr data-id={account.BORDEREAUID} key={account.BORDEREAUID} onClick={() => this.handleClick(account.BORDEREAUID)}>
                                     <td>{account.STATUS} </td>
